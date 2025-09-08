@@ -17,7 +17,7 @@ int main(){
     cout << "\n\n";
 
     int* start = &num[0];
-    int* end = &num[20-1];
+    int* end = &num[19];
 
     while (start < end) {
         start++;
