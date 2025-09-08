@@ -4,20 +4,19 @@
 #include <cstdlib>
 using namespace std;
 
-int main(){
-    
+int main() {
+
     srand(time(0));
 
-    const int size = 10;
-    int arr[size];
+    int arr[10];
 
     for (int i = 0; i < 10; i++) {
-        
+
         arr[i] = rand() % 10 + 1;
         cout << arr[i] << " ";
 
     }
-    
+
     int* max_ptr = &arr[0];
 
     for (int i = 0; i < 10; i++) {
