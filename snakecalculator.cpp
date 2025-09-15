@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cctype>
+#include <string>
 
 using namespace std;
 
@@ -11,6 +12,7 @@ int Operation(const vector<string>& grid, int r, int& c) {
     char operation = '+';
 
     while (c < grid[r].size()) {
+
         char x = grid[r][c];
 
         if (isdigit(x)) {
@@ -53,8 +55,14 @@ int main() {
     int col = 0;
     int result = Operation(grid, 0, col);
 
+    cout << "\n";
 
-    cout << result << endl;
+    for (const string& row : grid) {
+        cout << row << endl;
+    }
+
+    cout << "\n";
+    cout << "The Numbers all adding up to this grid of numbers is -> " << result;
 
     return 0;
 }
