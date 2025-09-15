@@ -3,7 +3,6 @@
 #include <vector>
 #include <cctype>
 #include <string>
-
 using namespace std;
 
 int Operation(const vector<string>& grid, int r, int& c) {
