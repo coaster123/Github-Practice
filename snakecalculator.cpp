@@ -20,8 +20,12 @@ long long Operation(long long acc, char symbol, long long digit) {
 
 long long solve(const vector<string>& grid, int r, int c, long long acc, char symbol) {
     
-    if (r < 0 || r >= (int)grid.size()) return acc;
-    if (c >= (int)grid[r].size()) return acc;
+    if (r < 0 || r >= (int)grid.size()){
+        return acc;
+    }
+    if (c >= (int)grid[r].size()) {
+        return acc;
+    }
 
     char cell = grid[r][c];
 
@@ -60,8 +64,12 @@ long long solve(const vector<string>& grid, int r, int c, long long acc, char sy
 
 
 long long run(const vector<string>& grid) {
-    if (grid.empty()) return 0;
-    return solve(grid, 0, 0, 0, '+');
+    if (grid.empty()){
+        return 0;
+    }
+    else{
+        return solve(grid, 0, 0, 0, '+');
+    }
 }
 
 int main() {
