@@ -9,6 +9,7 @@ public:
 
     double area;
     double perimeter;
+
     virtual void getArea() {}
     virtual void getPerimeter(){}
 
@@ -24,14 +25,19 @@ public:
     Circle(double r) : radius(r){}
 
     void getArea() override {
+
         area = pi * (radius * radius);
         cout << area;
+
     }
 
-    void getPerimeter() {
+    void getPerimeter() override {
+
         perimeter = 2 * pi * radius;
         cout << perimeter;
+
     }
+
 };
 
 class Rectangle : public Shape {
@@ -44,35 +50,58 @@ public:
     Rectangle(double l, double w) : length(l), width(w){}
 
     void getArea() override {
+
         area = length * width;
         cout << area;
+
     }
 
-    void getPerimeter() {
+    void getPerimeter() override {
+
         perimeter = (2 * width) + (2 * length);
         cout << perimeter;
+
     }
+
+
 };
 
 class RightTriangle : public Shape {
 
     double base;
     double height;
-    double longSide;
+    double longside;
 
 public:
 
-    RightTriangle(double b, double h, double l) : base(b), height(h), longSide(l){}
+    RightTriangle(double b, double h) : base(b), height(h){}
 
-    void getArea() {
+    void getArea() override {
+
         area = (base * height) / 2;
         cout << area;
+
     }
 
-    void getPerimeter() {
-        perimeter = longSide + base + height;
+    void getPerimeter() override {
+
+        longside = (base * base) + (height * height);
+        longside = sqrt(longside);
+        perimeter = longside + base + height;
         cout << perimeter;
+
     }
+
+
+};
+
+class Square : public Rectangle {
+
+public:
+    Square(double side) : Rectangle(side,side){}
+
+
+
 };
 
 int main() {
@@ -107,15 +136,12 @@ int main() {
     //Right Triangle
     double base;
     double height;
-    double LongSide;
     cout << "\n\n\n-------Right Triangle-------";
     cout << "\n\nWhat is the base for the Right Triangle -> ";
     cin >> base;
     cout << "What is the height for the Right Triangle -> ";
     cin >> height;
-    cout << "What is the long side for the Right Triangle -> ";
-    cin >> LongSide;
-    Shape* T = new RightTriangle(base, height,LongSide);
+    Shape* T = new RightTriangle(base, height);
     cout << "\nThe area of the Right Triangle is -> ";
     T->getArea();
     cout << "\nThe Perimeter of the Rectangle is -> ";
