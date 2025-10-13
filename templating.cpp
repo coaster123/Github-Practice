@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -26,6 +25,23 @@ U until(U x, Transformer transformer, Predicate predicate)
     return until(transformer(x), transformer, predicate);
 }
 
+template <typename T>
+void sort_descending(T& x, T& y, T& z) {
+    cout << "Before -> x: " << x << " y: " << y << " z: " << z << "\n";
+
+    if (x < y) {
+        swap(x, y);
+    }
+    if (y < z) {
+        swap(y, z);
+    }
+    if (x < y) {
+        swap(x, y);
+    }
+
+    cout << "After  -> x: " << x << " y: " << y << " z: " << z << "\n";
+}
+
 int two(int x)
 {
     return x * 2;
@@ -36,29 +52,6 @@ bool hundredCheck(int x)
     return x >= 100;
 }
 
-template <typename V>
-void order(V& a, V& b, V& c)
-{
-    cout << "a: " << a << " b: " << b << " c: " << c;
-    cout << "\n";
-    while (a < b || b < c || a < c)
-    {
-        if (a < b)
-        {
-            V temp = b;
-            b = a;
-            a = temp;
-        }
-
-        if (b < c)
-        {
-            V temp = c;
-            c = b;
-            b = temp;
-        }
-    }
-    cout << "a: " << a << " b: " << b << " c: " << c << endl;
-}
 
 int main()
 {
@@ -75,11 +68,11 @@ int main()
     assert(until(3, two, hundredCheck) == 192);
 
     int a = 3, b = 5, c = 1;
-    order(a, b, c);
+    sort_descending(a, b, c);
     assert(a == 5 && b == 3 && c == 1);
 
     double x = 4.2, y = 9.5, z = 2.8;
-    order(x, y, z);
+    sort_descending(x, y, z);
     assert(x == 9.5 && y == 4.2 && z == 2.8);
     
     cout << "\n\n";
@@ -88,3 +81,4 @@ int main()
     cout << "Pass!!";
     
 }
+
