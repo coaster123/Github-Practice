@@ -26,20 +26,21 @@ U until(U x, Transformer transformer, Predicate predicate)
 }
 
 template <typename T>
-void sort_descending(T& x, T& y, T& z) {
-    cout << "Before -> x: " << x << " y: " << y << " z: " << z << "\n";
+void sort_descending(T &a, T &b, T &c) {
+    cout << "Before -> a: " << a << " b: " << b << " c: " << c << "\n";
 
-    if (x < y) {
-        swap(x, y);
+    if (a < b) {
+        swap(a, b);
     }
-    if (y < z) {
-        swap(y, z);
-    }
-    if (x < y) {
-        swap(x, y);
+    if (b < c) {
+        swap(b, c);
     }
 
-    cout << "After  -> x: " << x << " y: " << y << " z: " << z << "\n";
+
+    cout << "After  -> a: " << a << " b: " << b << " c: " << c << "\n";
+
+    cout << "\n\n";
+
 }
 
 int two(int x)
@@ -81,4 +82,3 @@ int main()
     cout << "Pass!!";
     
 }
-
