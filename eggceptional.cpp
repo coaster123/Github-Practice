@@ -5,83 +5,73 @@ using namespace std;
 class egg {
 
 protected:
-	string size;
-	string flavor;
+    string size;
+    string flavor;
 
 public:
-	egg(string s, string f) : size(s), flavor(f){}
-	string getSize() const {
-		return size; 
-	}
-	string getFlavor() const {
-		return flavor; 
-	}
-	virtual void eat_egg() const = 0;
+    egg(string s, string f) : size(s), flavor(f) {}
+    string getSize() const {
+        return size;
+    }
+    string getFlavor() const {
+        return flavor;
+    }
+    virtual void eat_egg() const = 0;
 
 };
 
 class scrambledEgg : public egg {
 
 public:
-	scrambledEgg() : egg("large", "spicy"){}
-	void eat_egg() const override {
-		cout << "This is a " << size << " and " << flavor << " pair of scrambled eggs";
-	}
+    scrambledEgg() : egg("large", "spicy") {}
+    void eat_egg() const override {
+        cout << "This is a " << size << " and " << flavor << " pair of scramblde eggs";
+    }
 };
 
 class sunnysideup : public egg {
 
 public:
-	sunnysideup() : egg("small", "buttery"){}
-	void eat_egg() const override {
-		cout << "Yum, these sunny side up eggs are so " << flavor << ", to bad they are " << size;
-	}
+    sunnysideup() : egg("small", "buttery") {}
+    void eat_egg() const override {
+        cout << "Yum, these sunny side up eggs are so " << flavor << ", too bad they are " << size;
+    }
 
 };
 
 class BadEgg {
 public:
     const char* what() const noexcept {
-        return "There is a ROTTEN EGG in this carton, throw away immediately";
+        cout << "There is a ROTTEN EGG in this cartn, throw away immediately";
     }
 };
 
 class rottenEgg : public egg {
 
 public:
-	rottenEgg() : egg("Huge","Rotten"){}
+    rottenEgg() : egg("Huge", "Rotten") {}
 
-	void eat_egg() const override{
-		throw BadEgg();
-	}
+    void eat_egg() const override {
+        throw BadEgg();
+    }
 };
 
-class Carton{
+class Carton {
 
 private:
     vector<shared_ptr<egg>> eggs;
 
 public:
-    Carton() { 
-        eggs.reserve(12); 
+    Carton() {
+        eggs.reserve(12);
     }
 
-    void addEgg(shared_ptr<egg> egg) {
-        eggs.push_back(make_shared<scrambledEgg>());
-        eggs.push_back(make_shared<scrambledEgg>());
-        eggs.push_back(make_shared<sunnysideup>());
-        eggs.push_back(make_shared<scrambledEgg>());
-        eggs.push_back(make_shared<scrambledEgg>());
-        eggs.push_back(make_shared<sunnysideup>());
-        eggs.push_back(make_shared<scrambledEgg>());
-        eggs.push_back(make_shared<scrambledEgg>());
-        eggs.push_back(make_shared<sunnysideup>());
-        eggs.push_back(make_shared<sunnysideup>());
-        eggs.push_back(make_shared<scrambledEgg>());
-        
+    void addEgg(shared_ptr<egg> e) {
+        eggs.push_back(e);
     }
-    void eatEggFromCarton() {      
-        shared_ptr<egg> e = eggs[0]; 
+
+    void eatEgg() {
+        shared_ptr<egg> e = eggs[0];
         eggs.erase(eggs.begin());
 
         if (e->getFlavor() == "Rotten") {
@@ -94,12 +84,24 @@ public:
     }
 };
 
-int main(){
+int main() {
 
     Carton carton;
     string choice;
     int count = 12;
-   
+
+    carton.addEgg(make_shared<scrambledEgg>());
+    carton.addEgg(make_shared<sunnysideup>());
+    carton.addEgg(make_shared<scrambledEgg>());
+    carton.addEgg(make_shared<sunnysideup>());
+    carton.addEgg(make_shared<scrambledEgg>());
+    carton.addEgg(make_shared<sunnysideup>());
+    carton.addEgg(make_shared<scrambledEgg>());
+    carton.addEgg(make_shared<sunnysideup>());
+    carton.addEgg(make_shared<scrambledEgg>());
+    carton.addEgg(make_shared<sunnysideup>());
+    carton.addEgg(make_shared<scrambledEgg>());
+
     cout << "Do you want your eggs from a shady place(1) or a supermarket(2) -> ";
     cin >> choice;
 
@@ -116,11 +118,9 @@ int main(){
     }
 
     while (count != 0) {
-        carton.eatEggFromCarton();
+        carton.eatEgg();
         cout << "\n";
         count--;
     }
 
 }
-
-
