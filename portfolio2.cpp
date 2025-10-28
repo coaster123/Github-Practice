@@ -342,7 +342,7 @@ int Alchemist() {
 		cout << "\n\n";
 		board();
 		cout << "\n\n\n";
-		cout << name1 << ", what piece do you want to select from the board -> ";
+		cout << name2 << ", what piece do you want to select from the board -> ";
 		cin >> x;
 
 		//choosing which one first
