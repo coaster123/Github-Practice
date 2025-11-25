@@ -6,7 +6,7 @@
 using namespace std;
 
 
-//Queu
+//Queue
 class Queue {
 private:
     vector<int> data;
@@ -15,19 +15,11 @@ public:
         data.push_back(v);
     }
 
-    int dequeue() {
-        if (data.empty()) {
-            throw out_of_range("Queue emty");
-        }
-        int x = data.front();
-        data.erase(data.begin());
-        return x;
-    }
-
     bool empty() const {
         return data.empty();
     }
 };
+
 
 //Wuack
 class Quack {
@@ -64,3 +56,4 @@ public:
         return data.empty();
     }
 };
+
