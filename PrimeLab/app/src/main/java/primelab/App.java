@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class App {
+    
 public static void main(String[] args) {
+    
     Factorizer factorizer = new Factorizer();
     Scanner scanner = new Scanner(System.in);
         
@@ -20,5 +22,6 @@ public static void main(String[] args) {
     }
 
 
+    
     }
 }
