@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FactorizerTest {
 
-    @Test
+@Test
 void testOdd() {
     Factorizer factorizer = new Factorizer();
     assertEquals(factorizer.primeFactors(15), new ArrayList<>(Arrays.asList(3, 5)));
@@ -27,3 +27,4 @@ void testHundred() {
 }
 
 }
+
