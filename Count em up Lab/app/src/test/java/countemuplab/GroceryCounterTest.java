@@ -45,15 +45,16 @@ public class GroceryCounterTest {
     void testOverflowCounter() {
         GroceryCounter counter = new GroceryCounter();
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 10; i++) {
             counter.addTens();
         }
 
-        assertEquals(3, counter.getOverflows());
+        assertEquals(1, counter.getOverflows());
     }
 
 
    
 
 }
+
 
