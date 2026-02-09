@@ -9,10 +9,10 @@ public class Main {
         
         
         Scanner scanner = new Scanner(System.in);
-        boolean running = true;
+        boolean flag = true;
 
         
-        while (running) {
+        while (flag) {
 
 
             System.out.println("Type: \nT for $10 dollars, \nS for $1, \nD for Dimes  \nP for Pennies \nE to quit \nC for Clear Counter\nChoice -> ");
@@ -33,7 +33,7 @@ public class Main {
                 counter.addHundredths();
             }
             else if (choice.equals("E") || choice.equals("e")) {
-                running = false;
+                flag = false;
             }
             else if (choice.equals("C") || choice.equals("c")) {
                 counter.clear();
@@ -43,7 +43,7 @@ public class Main {
             }
 
 
-            if (running) {
+            if (flag) {
                 System.out.println("Current price: $" + counter.getPrice());
                 System.out.println("Current amount of overflows: " + counter.getOverflows());
             }
@@ -58,5 +58,6 @@ public class Main {
 
     
 }
+
 
 
