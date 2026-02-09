@@ -41,7 +41,7 @@ public class App {
         App app = new App();
         int value = app.getInput();
 
-        System.out.println("You entered: " + value);
+        System.out.println("You entered ->  " + value);
         
     }
 }
