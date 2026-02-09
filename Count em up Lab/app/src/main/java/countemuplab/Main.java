@@ -6,17 +6,20 @@ public class Main {
     public static void main(String[] args) {
         
         GroceryCounter counter = new GroceryCounter();
+        
+        
         Scanner scanner = new Scanner(System.in);
-        boolean flag = true;
-
+        boolean running = true;
 
         
-        while (flag) {
+        while (running) {
 
-            System.out.println("Type: \nT for $10 dollars, \nS for $1, \nD for Dimes  \nP for Pennies \nE to quit \nChoice -> ");
+
+            System.out.println("Type: \nT for $10 dollars, \nS for $1, \nD for Dimes  \nP for Pennies \nE to quit \nC for Clear Counter\nChoice -> ");
             String choice = scanner.next();
 
-            
+
+
             if (choice.equals("T") || choice.equals("t")) {
                 counter.addTens();
             }
@@ -30,27 +33,30 @@ public class Main {
                 counter.addHundredths();
             }
             else if (choice.equals("E") || choice.equals("e")) {
-                flag = false;
+                running = false;
+            }
+            else if (choice.equals("C") || choice.equals("c")) {
+                counter.clear();
             }
             else {
                 System.out.println("Please choose a valid option!");
             }
 
-            
-            if (flag) {
+
+            if (running) {
                 System.out.println("Current price: $" + counter.getPrice());
                 System.out.println("Current amount of overflows: " + counter.getOverflows());
             }
+
+
         }
 
-
-        
         System.out.println("Final price: $" + counter.getPrice());
         System.out.println("Total overflows: " + counter.getOverflows());
         scanner.close();
-        
     }
 
     
 }
+
 
