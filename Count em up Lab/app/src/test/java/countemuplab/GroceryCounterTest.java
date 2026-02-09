@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 public class GroceryCounterTest {
 
-    
 
+    
     @Test
     void testAddTens() {
         GroceryCounter counter = new GroceryCounter();
@@ -17,7 +17,7 @@ public class GroceryCounterTest {
     }
 
 
-    
+
     @Test
     void testAddOnes() {
         GroceryCounter counter = new GroceryCounter();
@@ -25,7 +25,7 @@ public class GroceryCounterTest {
         assertEquals(1.00, counter.getPrice());
     }
 
-    
+
     @Test
     void testAddTenths() {
         GroceryCounter counter = new GroceryCounter();
@@ -41,7 +41,6 @@ public class GroceryCounterTest {
     }
 
 
-    
     @Test
     void testOverflowCounter() {
         GroceryCounter counter = new GroceryCounter();
@@ -54,4 +53,7 @@ public class GroceryCounterTest {
     }
 
 
+   
+
 }
+
