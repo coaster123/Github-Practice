@@ -16,10 +16,14 @@ public class Task {
         this.done = false;
     }
 
+
+
+    
     public int getId() {
         return id;
     }
 
+    
     public String getDescription() {
         return description;
     }
@@ -37,6 +41,8 @@ public class Task {
         return "Task #" + id + ": " + description + (done ? " [Completed]" : " [Pending]");
     }
 
+
+    
     public static class TaskList {
 
         private List<Task> taskList = new ArrayList<>();
@@ -50,6 +56,8 @@ public class Task {
             taskList.add(newTask);
         }
 
+
+        
         public boolean markTaskAsDone(int id) {
             for (Task task : taskList) {
                 if (task.getId() == id && !task.isDone()) {
@@ -60,6 +68,7 @@ public class Task {
             return false;
         }
 
+        
         public void displayTasks() {
             System.out.println("Completed Tasks:");
             for (Task task : taskList) {
@@ -67,16 +76,26 @@ public class Task {
                     System.out.println(task);
                 }
             }
+
+            
             System.out.println("\nPending Tasks:");
             for (Task task : taskList) {
                 if (!task.isDone()) {
                     System.out.println(task);
                 }
             }
+
+            
         }
 
         public void clearAllTasks() {
             taskList.clear();
         }
+
+
+        
     }
+    
+    
+
 }
