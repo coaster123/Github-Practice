@@ -1,0 +1,1 @@
+My partner caught that when you put a number that is occupied which prompts the program to tell you to try again and you put a string, it crashes so that is the only thing that I had to fix
