@@ -8,21 +8,18 @@ import java.util.ArrayList;
 public class App {
   public static void main(String[] args) {
 
-    FuzzyListGenerator gen = new FuzzyListGenerator(5);
+    FuzzyListGenerator generator = new FuzzyListGenerator(5);
 
-    ArrayList<Fuzzy> randomList = gen.randomizedRainbowFuzzies();
-    ArrayList<Fuzzy> sortedList = gen.sortedRainbowFuzzies();
+    ArrayList<Fuzzy> randomList = generator.randomizedRainbowFuzzies();
+    ArrayList<Fuzzy> sortedList = generator.sortedRainbowFuzzies();
 
-    LinearSearch ls1 = new LinearSearch(randomList);
-    System.out.println("Linear Random: " + ls1.searchGoldFuzzy());
+    Search randomSearch = new Search(randomList);
+    Search sortedSearch = new Search(sortedList);
 
-    LinearSearch ls2 = new LinearSearch(sortedList);
-    System.out.println("Linear Sorted: " + ls2.searchGoldFuzzy());
+    System.out.println("Linear Random: " + randomSearch.linearSearch());
+    System.out.println("Linear Sorted: " + sortedSearch.linearSearch());
 
-    BinarySearch bs1 = new BinarySearch(randomList);
-    System.out.println("Binary Random: " + bs1.searchGoldFuzzy());
-
-    BinarySearch bs2 = new BinarySearch(sortedList);
-    System.out.println("Binary Sorted: " + bs2.searchGoldFuzzy());
+    System.out.println("Binary Random: " + randomSearch.binarySearch());
+    System.out.println("Binary Sorted: " + sortedSearch.binarySearch());
   }
 }
