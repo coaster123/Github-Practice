@@ -5,10 +5,48 @@ package visual.studios.code;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import java.util.ArrayList;
 
 class AppTest {
+
   @Test
   void theTestsWork() {
     assertEquals(true, true);
+  }
+
+  ArrayList<Fuzzy> sorted;
+  ArrayList<Fuzzy> random;
+
+  @BeforeEach
+  void setup() {
+    FuzzyListGenerator gen = new FuzzyListGenerator(100);
+    sorted = gen.sortedRainbowFuzzies();
+    random = gen.randomizedRainbowFuzzies();
+  }
+
+  @Test
+  void linearSorted() {
+    Search s = new Search(sorted);
+    assertEquals(100, s.linearSearch());
+  }
+
+  @Test
+  void linearRandom() {
+    Search s = new Search(random);
+    assertTrue(s.linearSearch() >= 0);
+  }
+
+  @Test
+  void binarySorted() {
+    Search s = new Search(sorted);
+    assertEquals(100, s.binarySearch());
+  }
+
+  @Test
+  void binaryRandom() {
+    Search s = new Search(random);
+    int result = s.binarySearch();
+    assertTrue(result == -1 || result >= 0);
   }
 }
