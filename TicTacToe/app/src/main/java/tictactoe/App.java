@@ -27,6 +27,7 @@ public class App {
 
       while (play.win1 == false && play.win2 == false && play.tie == false) {
 
+        //If Player 1 goes first
         if (player1First == true) {
 
           play.board();
@@ -63,8 +64,8 @@ public class App {
           play.checkTwo();
           play.checkTie();
 
-          if (play.win1 == true || play.win2 == true || play.tie == true) {
-          } else {
+          if (play.win1 == true || play.win2 == true || play.tie == true) {} 
+          else {
 
             play.board();
             System.out.print("\n\n");
@@ -96,7 +97,10 @@ public class App {
             play.playerTwo(x);
           }
 
-        } else {
+        } 
+        
+        //If player 2 goes first
+        else {
 
           play.board();
           System.out.print("\n\n");
@@ -131,8 +135,8 @@ public class App {
           play.checkTwo();
           play.checkTie();
 
-          if (play.win1 == true || play.win2 == true || play.tie == true) {
-          } else {
+          if (play.win1 == true || play.win2 == true || play.tie == true) {} 
+          else {
 
             play.board();
             System.out.print("\n\n");
@@ -178,11 +182,13 @@ public class App {
         System.out.println("Congratulations Player 1, you win!");
         player1Wins++;
         player1First = false;
-      } else if (play.win2 == true) {
+      } 
+      else if (play.win2 == true) {
         System.out.println("Congratulations Player 2, you win!");
         player2Wins++;
         player1First = true;
-      } else if (play.tie == true) {
+      } 
+      else if (play.tie == true) {
         System.out.println("It's a tie!");
         ties++;
       }
