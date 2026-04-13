@@ -1,8 +1,6 @@
 package tictactoe;
 
-
 public class TicTacToe {
-
 
     public String[] game = {"1","2","3","4","5","6","7","8","9"};
     public String[] reset = {"1","2","3","4","5","6","7","8","9"};
@@ -30,24 +28,22 @@ public class TicTacToe {
 
     public void resetGame() {
         for(int i = 0; i < 9; i++){
-            game[i] = reset[i];
+            game[i] = Integer.toString(i + 1);
         }
         win1 = false;
         win2 = false;
         tie = false;
+        input = true;
     }
 
     int playerOne(int x){
-
         game[x - 1] = "X"; 
         return 0;
-
     }
 
     int playerTwo(int x){
         game[x - 1] = "O";
         return 0;
-
     }
 
     void inputCheck(int x){   
@@ -62,26 +58,23 @@ public class TicTacToe {
     void checkOne(){
 
         for(int i = 0; i < 9; i++){
-            //verticle
             if(i == 0 || i == 1 || i == 2){
                 if(game[i].equals("X") && game[i + 3].equals("X") && game[i + 6].equals("X")){
                     win1 = true;
                 }
             }
-            //horizontal
             if(i == 0 || i == 3 || i == 6){
                 if(game[i].equals("X") && game[i + 1].equals("X") && game[i + 2].equals("X")){
                     win1 = true;
                 }
             }
-            //diagonal
             if(i == 0){
-                if(game[i].equals("X") && game[i + 4].equals("X") && game[i + 8].equals("X")){
+                if(game[0].equals("X") && game[4].equals("X") && game[8].equals("X")){
                     win1 = true;
                 }
             }
             if(i == 2){
-                if(game[i].equals("X") && game[i + 2].equals("X") && game[i + 4].equals("X")){
+                if(game[2].equals("X") && game[4].equals("X") && game[6].equals("X")){
                     win1 = true;
                 }
             }
@@ -91,26 +84,23 @@ public class TicTacToe {
     void checkTwo(){
 
         for(int i = 0; i < 9; i++){
-            //verticle
             if(i == 0 || i == 1 || i == 2){
                 if(game[i].equals("O") && game[i + 3].equals("O") && game[i + 6].equals("O")){
                     win2 = true;
                 }
             }
-            //horizontal
             if(i == 0 || i == 3 || i == 6){
                 if(game[i].equals("O") && game[i + 1].equals("O") && game[i + 2].equals("O")){
                     win2 = true;
                 }
             }
-            //diagonal
             if(i == 0){
-                if(game[i].equals("O") && game[i + 4].equals("O") && game[i + 8].equals("O")){
+                if(game[0].equals("O") && game[4].equals("O") && game[8].equals("O")){
                     win2 = true;
                 }
             }
             if(i == 2){
-                if(game[i].equals("O") && game[i + 2].equals("O") && game[i + 4].equals("O")){
+                if(game[2].equals("O") && game[4].equals("O") && game[6].equals("O")){
                     win2 = true;
                 }
             }
@@ -129,12 +119,5 @@ public class TicTacToe {
         if (count == 9 && win1 == false && win2 == false){
             tie = true;
         }
-
-
     }
-
-
 }
-
-
-
