@@ -56,23 +56,27 @@ public class TicTacToe {
     }
 
     void checkOne(){
-
+        
         for(int i = 0; i < 9; i++){
+            //check verticle
             if(i == 0 || i == 1 || i == 2){
                 if(game[i].equals("X") && game[i + 3].equals("X") && game[i + 6].equals("X")){
                     win1 = true;
                 }
             }
+            //check horizontal
             if(i == 0 || i == 3 || i == 6){
                 if(game[i].equals("X") && game[i + 1].equals("X") && game[i + 2].equals("X")){
                     win1 = true;
                 }
             }
+            //check diagonal -
             if(i == 0){
                 if(game[0].equals("X") && game[4].equals("X") && game[8].equals("X")){
                     win1 = true;
                 }
             }
+            //check diagonal +
             if(i == 2){
                 if(game[2].equals("X") && game[4].equals("X") && game[6].equals("X")){
                     win1 = true;
@@ -84,21 +88,25 @@ public class TicTacToe {
     void checkTwo(){
 
         for(int i = 0; i < 9; i++){
+            //check verticle
             if(i == 0 || i == 1 || i == 2){
                 if(game[i].equals("O") && game[i + 3].equals("O") && game[i + 6].equals("O")){
                     win2 = true;
                 }
             }
+            //check horizontal
             if(i == 0 || i == 3 || i == 6){
                 if(game[i].equals("O") && game[i + 1].equals("O") && game[i + 2].equals("O")){
                     win2 = true;
                 }
             }
+            //check diagonal -
             if(i == 0){
                 if(game[0].equals("O") && game[4].equals("O") && game[8].equals("O")){
                     win2 = true;
                 }
             }
+            //check diagonal +
             if(i == 2){
                 if(game[2].equals("O") && game[4].equals("O") && game[6].equals("O")){
                     win2 = true;
