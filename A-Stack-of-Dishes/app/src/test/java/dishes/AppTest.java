@@ -10,11 +10,11 @@ class AppTest {
 
     @Test
     void pushThenPop() {
+        
         DishStack stack = new DishStack(1);
-
         stack.push(new Dish("Test"));
-
         assertEquals("Test", stack.pop().description);
+        
     }
 
   
